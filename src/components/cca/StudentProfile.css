@@ -1,0 +1,293 @@
+.StudentProfile {
+
+    width: 30vw;
+    height: 100vh;
+    background: #eff2f9;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto; /* Adjusted grid template rows */
+    gap: 20px; /* Added gap between grid items */
+    position: relative;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+.StudentProfile::-webkit-scrollbar{
+  width: 1px;
+}
+
+.student-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px; /* Space below header */
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0px;
+    background: #eff2f9; /* Ensure background covers the content behind */
+    z-index: 10; /* Ensure it is above other content */
+}
+
+.student-header h3,
+.student-header .student-cross {
+    text-align: center;    
+}
+.student-header .student-cross{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    box-shadow: 2px 2px 1px #bebebe, -1px -1px 1px #ffffff;
+    border-radius: 10px;
+}
+
+
+
+.student-info {
+    width: 25vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 4px 4px 1px #dbdada, -4px -4px 1px #f9f9f9;
+    padding: 0px 10px;
+}
+
+.student-image-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.images {
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    max-width: 320px;
+    max-height: 100px;
+    column-gap: 20px;
+}
+
+.images img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-item label {
+    flex: 1;
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+}
+
+.info-item span {
+    flex: 2;
+    color: #666;
+}
+
+.address {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 4px 4px 1px #dbdada, -4px -4px 1px #f9f9f9;
+    padding: 0px 10px;
+}
+
+.address span {
+    margin: 0px;
+    font-size: 14px;
+    color: #666;
+    padding-bottom: 5px;
+}
+
+.attendance-calendar {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.react-calendar {
+    border: none !important;
+    width: 100%;
+    background: #eff2f9 !important;
+    box-shadow: 8px 8px 15px rgba(184, 190, 198, 0.5), -8px -8px 15px rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    height: 100%;
+}
+
+.payment-button button{
+    background: #eff2f9;
+}
+.react-calendar__navigation button {
+    color: #333;
+    min-width: 44px;
+    background: none;
+    font-size: 12px !important;
+    margin-top: 8px;
+}
+
+
+.react-calendar__month-view__days__day {
+    border: none;
+    background: #eff2f9;
+    color: #333;
+    box-shadow: 5px 5px 10px #d1d9e6, -5px -5px 10px #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.react-calendar__month-view__days__day--weekend {
+    color: #333;
+}
+.react-calendar__month-view__weekdays abbr{
+    text-decoration: none !important;
+    text-underline-offset: none !important;
+}
+
+.react-calendar__tile--present {
+    background-color: #a4e5a4 !important;
+    box-shadow: inset 5px 5px 10px #d1d9e6, inset -5px -5px 10px #ffffff;
+}
+
+.react-calendar__tile--absent {
+    background-color: #e5a4a4 !important;
+    box-shadow: inset 5px 5px 10px #d1d9e6, inset -5px -5px 10px #ffffff;
+}
+
+.react-calendar__tile--red {
+    background-color: red !important;
+    color: white !important;
+    box-shadow: inset 5px 5px 10px #d1d9e6, inset -5px -5px 10px #ffffff;
+}
+
+.react-calendar__tile--active {
+    background-color: #a4d3e5 !important;
+    box-shadow: inset 5px 5px 10px #d1d9e6, inset -5px -5px 10px #ffffff;
+}
+
+.react-calendar__tile {
+    border-radius: 10px;
+}
+
+.student-transaction {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #eff2f9;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.student-transaction:hover {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.student-trans-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    border-radius: 50%;
+    padding: 10px;
+    background: #f5f5f5;
+}
+
+.student-transaction-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0px;
+    padding: 0px;
+}
+
+.student-transaction-amount {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0px;
+    padding: 0px;
+}
+
+.student-transaction-description {
+    font-size: 14px;
+    color: #777;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .StudentProfile {
+        width: 90vw; /* Use a wider width for mobile */
+    }
+
+    .student-info {
+        width: 100%; /* Ensure it takes full width of the parent */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .student-image-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infos {
+        width: 100%;
+        gap: 5px; /* Adjust gap for smaller screens */
+    }
+
+    .images {
+        width: 150px; /* Adjust image size for mobile */
+        height: 150px;
+    }
+
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%; /* Make info-item full width */
+    }
+
+    .info-item label, .info-item span {
+        width: 100%; /* Make label and span full width */
+        text-align: left; /* Align text to the left */
+    }
+
+    .address p {
+        text-align: left;
+    }
+}

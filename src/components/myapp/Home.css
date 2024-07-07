@@ -1,0 +1,148 @@
+.ccadashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cca-profile-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.cca-profile-info-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.cca-profile-info-left p,
+.cca-profile-info-left h3 {
+    margin: 0;
+}
+
+.cca-home-profile-details-search {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.cca-home-profile-details-search input {
+    width: calc(100% - 50px);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(183, 180, 180);
+    font-size: large;
+}
+
+.cca-home-profile-details-search input:focus {
+    outline: none;
+}
+
+.cca-home-profile-details-search-icon {
+    width: 45px;
+    height: 45px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cca-home-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
+    background: #ecf0f3;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.wrapper .img-area {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.img-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+.wrapper .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info .name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.info .about {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.info .status {
+    display: flex;
+    align-items: center;
+}
+
+.status span {
+    margin-right: 5px;
+}
+
+.status .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.status .icon.check {
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status .icon.cross {
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.cca-home-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #ddd;
+}
+
+.cca-footer-icon {
+    width: 25px;
+    height: 25px;
+}

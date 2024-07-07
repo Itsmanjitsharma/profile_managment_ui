@@ -1,0 +1,150 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+.product-container {
+    height: 95vh;
+    width: 28vw;
+    max-height: 95vh;
+    background: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px; /* Added padding to ensure margin from left and right */
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+    overflow: auto;
+}
+.product-container::-webkit-scrollbar {
+   width: 1px;
+}
+
+.product-container-details {
+    width: 100%;
+    height: 40vh;
+}
+
+.product-container-details span{
+   font-size: 15px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.swiper-slide {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.product-container-details-info p{
+   color: orange;
+   padding: 0px;
+   margin: 3px;
+}
+.product-container-details-info{
+   width: 100%;
+   height: 100%;
+}
+.name-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.name-price h4{
+    padding: 0px;
+    margin: 0px;
+    font-size: 17px;
+}
+.name-price h5{
+    padding: 0px;
+    margin: 0px;
+    color: orange;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.rating span {
+    margin-left: 5px;
+}
+
+.product-details p {
+    margin: 10px 0;
+}
+
+.color-selection, .size-selection {
+    margin: 10px 0;
+}
+.color-selection h4{
+   padding: 0px;
+   margin-bottom: 10px;
+}
+
+.colors {
+    display: flex;
+    gap: 10px;
+}
+
+.color {
+    width: 30px;
+    height: 30px;
+    border-radius: 20%;
+    border: 1px solid #ddd;
+}
+
+.size-selection select {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+.size-selection h4{
+   margin: 0px;
+   margin-bottom: 10px;
+   padding: 0px;
+}
+
+/*.buy-now {
+    width: 100%;
+    padding: 15px;
+    background: orange;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: auto; 
+}*/
+
+
+
+.buy-now {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.buy-now button {
+    width: 100%;
+    padding: 15px;
+    background: orange;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}

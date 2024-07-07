@@ -1,0 +1,152 @@
+.shoppingCart {
+    width: 28vw;
+    height: 100vh;
+    max-width: 95vh;
+    background: rgb(228, 234, 237);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.shoppingCart-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.shoppingCart-header h3 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.shoppingcart-products {
+    flex: 1;
+    overflow: auto;
+    margin: 10px 0;
+    padding-right: 10px;
+}
+
+.shoppingcart-products::-webkit-scrollbar {
+    width: 0.5px;
+}
+
+.shoppingcart-products::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.items-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.items-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.info-calculator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-calculator button {
+    padding: 5px;
+    border-radius: 50%;
+    border: none;
+    background: #ccc;
+    color: black;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.promo-section {
+    display: flex;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.promo-section input {
+    flex: 1;
+    padding: 10px;
+    color: #333;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.promo-section button {
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.details-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.details-amount p {
+    margin: 5px 0;
+}
+
+.details-amount:not(:last-child) {
+    border-bottom: 1px dashed black;
+    padding-bottom: 10px;
+}
+
+.checkoutbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.checkoutbutton button {
+    width: 100%;
+    padding: 15px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}

@@ -1,0 +1,145 @@
+.App {
+    margin: 0; /* Set margin to zero */
+    padding: 0; /* Set padding to zero */
+    max-width: 100%;
+    max-height: 100%;
+    background-image: url('https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdb64cd7f-5b94-4cb4-a532-09fed651d48c_1280x720.jpeg');
+    background-size: cover; /* Ensures the background image covers the entire element */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    width: 100%;
+    height: 100vh; /* Ensures the element takes the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .header-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .header-first,.header-second{
+    margin-top: 10px;
+    color: white;
+  }
+  .header-first{
+     padding-left: 10px;
+  }
+  .header-second{
+    border: 2px solid greenyellow;
+    margin-right: 10px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .header-second p{
+    margin-right: 10px !important;
+    align-self: center;
+    margin-left: 10px !important;
+  }
+  .arrow-container{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+  }
+  .header-first,.header-second p{
+    margin: 0px;
+    padding: 0px;
+  }
+  .header-container header{
+    margin-top: 10px;
+  }
+  .header-container header nav ul{
+      display: flex;
+      justify-content: center;
+      list-style-type: none; /* Remove bullet points */
+      column-gap: 50px;
+      margin: 0; /* Set margin to zero */
+      padding: 0; /* Set padding to zero */
+    }
+  .header-container header nav ul li a{
+    color: white;
+    text-decoration: none;
+  }
+  
+  .middle-container{
+    display: flex;
+    flex-direction: column;
+    column-gap: 0px;
+    row-gap: 0px;
+  }
+  .middle-container h4{
+    font-size: 100px !important;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 5rem; /* Adjust the value as needed for the desired space between letters */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  .middle-container p{
+    margin: 0px;
+    color: #fff;
+    padding: 0px;
+  }
+  
+  .middle-header-second{
+    width: 10rem;
+    border: 2px solid greenyellow;
+    margin-right: 10px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .middle-header-second p{
+    margin-right: 10px !important;
+    align-self: center;
+    margin-left: 10px !important;
+  }
+  .middle-header-second .arrow-container{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+  }
+  .pipe-container{
+    width: 1px;
+    height: 35px;
+    background-color: white;
+  }
+  .middle-contianer-last{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 17rem;
+    justify-content: space-between;
+  }
+  
+  
+  .bottom-container{
+      display: flex;
+      flex-direction: row;
+  }
+  .bottom-social-icons{
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+  .icons{
+    padding-right: 20px;
+    color: white;
+  }
+  button{
+     width: 5px;
+     height: 20px;
+  }

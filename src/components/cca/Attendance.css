@@ -1,0 +1,171 @@
+.attendance {
+    width: 30vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 5% 85% 10%;
+    background: #e0e0e0;
+    position: relative;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    max-height: 100vh;
+    overflow: auto;
+    font-family: 'Arial', sans-serif;
+    color: #8a8a8a;
+}
+.attendance-toggle-switch {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+
+}
+
+.attendance-switch-label {
+    display: inline-block;
+    width: 44px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.attendance-checkbox {
+    display: none;
+}
+
+.attendance-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+.attendance-slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.attendance-checkbox:checked + .attendance-slider {
+    background-color: rgb(57, 55, 55);
+}
+
+.attendance-checkbox:checked + .attendance-slider:before {
+    transform: translateX(14px);
+}
+.attendance h3 {
+    margin-top: 0; /* Adjusted to prevent overlap */
+    position: fixed;
+    top: 20px;
+}
+
+.sub-attendance {
+    margin-top: 20px;
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 100%; /* Limits height to prevent overflowing */
+}
+.sub-attendance::-webkit-scrollbar {
+    width: 0.5px;
+}
+
+.attendance-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 2px 4px #bebebe, -1px -1px 4px #ffffff;
+    padding: 5px 10px;
+    margin: 10px 5px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.present-absent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.present-absent p {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 100%;
+    box-shadow: 2px 2px 4px #bebebe, -1px -1px 4px #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button-container button {
+    margin-top: 20px;
+    width: 100%; /* Ensures button spans full width */
+    padding: 10px 20px;
+}
+
+.attendance-calendar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 28vw;
+    overflow-y: auto; /* Enables vertical scrolling for the dates */
+}
+.attendance-calendar::-webkit-scrollbar {
+    width: 0.5px;
+}
+.dates {
+    width: 28vw;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centers dates horizontally */
+    gap: 10px; /* Adds spacing between dates */
+    margin-bottom: 10px; /* Bottom margin for spacing from other elements */
+    padding: 0px 10px;
+}
+
+.dates p {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 100%;
+    box-shadow: 2px 2px 1px #bebebe, -1px -1px 1px #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.cross{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    box-shadow: 2px 2px 1px #bebebe, -1px -1px 1px #ffffff;
+    border-radius: 10px;
+}
+
+.present-absent p.selected {
+    box-shadow: inset 2px 2px 4px #bebebe, inset -1px -1px 4px #ffffff;
+    background-color: #d1d1d1; /* Change to indicate selection */
+}

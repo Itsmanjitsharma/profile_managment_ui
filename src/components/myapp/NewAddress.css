@@ -1,0 +1,80 @@
+.NewAddress {
+    width: 30vw;
+    height: 100vh;
+    max-width: 100vh;
+    background: rgb(228, 234, 237);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: auto; /* Add overflow to handle large content */
+}
+.NewAddress::-webkit-scrollbar{
+   width: 0.5px;
+}
+
+.address-infos {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.address-infos h3 {
+    margin: 0;
+    padding-bottom: 5px; /* Add space below the heading */
+}
+
+.address-infos input {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box; /* Ensure padding is included in the total width */
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.phone-infos{
+    gap: 10px;
+}
+.phone-infos select,
+.phone-infos input {
+    padding: 10px; /* Ensure consistent padding */
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px; /* Ensure consistent font size */
+    height: 40px; /* Ensure consistent height */
+}
+
+.phone-infos select {
+    width: 20%;
+    margin-right: 5px;
+}
+
+.phone-infos input {
+    width: 78%;
+}
+.address-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.address-btn button{
+     width: 100%;
+     padding: 15px;
+     border-radius: 20px;
+     color: white;
+     border: none;
+     font-size: 18px;
+     cursor: pointer;
+     background: black;
+}
