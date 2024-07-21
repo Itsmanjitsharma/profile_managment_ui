@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './Attendance.css';
 import { RxCross1 } from "react-icons/rx";
+import { useNavigate } from 'react-router-dom';
 
 const Attendance = () => {
     const [attendance, setAttendance] = useState(Array(30).fill(null));
     const [showAttendance, setShowAttendance] = useState(true); // State to toggle between pages
     const [student, setStudent] = useState([]);
+    const navigate = useNavigate(); // Use the navigate hook
 
     const handleAttendanceClick = (index, status) => {
         const newAttendance = [...attendance];
@@ -24,7 +26,7 @@ const Attendance = () => {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                setStudent(data);                
+                setStudent(data);  
              } catch (error) {
                 console.error('Error fetching student data:', error);
             }
@@ -52,6 +54,7 @@ const Attendance = () => {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
+            navigate('/home');              
             console.log('Attendance submitted successfully:', data);
         } catch (error) {
             console.error('Error submitting attendance:', error);

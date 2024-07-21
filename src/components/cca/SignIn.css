@@ -16,7 +16,9 @@
     color: #8a8a8a;
 
 }
-
+.Signin::-webkit-scrollbar{
+    width: 0.5px;
+  }
 form{
     margin-top: 20px;
     display: flex;

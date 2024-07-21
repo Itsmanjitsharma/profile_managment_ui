@@ -3,22 +3,38 @@ import './StudentProfile.css';
 import { RxCross1 } from "react-icons/rx";
 import { useLocation, Link } from 'react-router-dom';
 import Calendar from 'react-calendar';
+import { useNavigate } from 'react-router-dom';
+
+const loadScript = (src) => {
+    return new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = () => {
+            resolve(true);
+        };
+        script.onerror = () => {
+            resolve(false);
+        };
+        document.body.appendChild(script);
+    });
+};
 
 const StudentProfile = () => {
     const location = useLocation();
     const { state } = location;
-    const profileId = state?.profileId; // Access studentId safely using optional chaining
+    const profileId = state?.profileId; // Access profileId safely using optional chaining
     const [student, setStudent] = useState({});
     const [transactions, setTransactions] = useState([]);
     const [date, setDate] = useState(new Date());
     const [attendance, setAttendance] = useState({});
+    const navigate = useNavigate(); // Use the navigate hook
 
     useEffect(() => {
         const fetchStudentData = async () => {
             try {
                 if (!profileId) {
                     console.error('Student ID is not defined');
-                    return; // Exit early if studentId is not defined
+                    return; // Exit early if profileId is not defined
                 }
                 console.log('Fetching data for student ID:', profileId); // Log for debugging
                 const response = await fetch(`http://localhost:8080/api/profile/student?id=${profileId}`);
@@ -27,7 +43,7 @@ const StudentProfile = () => {
                 }
                 const data = await response.json();
                 setStudent(data);
-                console.log(data.image)
+                console.log(data.image);
                 setTransactions(data.transactions);
 
                 // Convert attendance dates
@@ -44,20 +60,91 @@ const StudentProfile = () => {
         };
 
         fetchStudentData();
-    }, [profileId]); // Ensure `studentId` is included in the dependency array
+    }, [profileId]); // Ensure profileId is included in the dependency array
 
     const tileClassName = ({ date, view }) => {
         if (view === 'month') {
             const dateString = date.toISOString().split('T')[0];
-            if (attendance[dateString] === 'present') {
+            if (attendance[dateString] === 'Present') {
                 return 'react-calendar__tile--present';
-            } else if (attendance[dateString] === 'absent') {
+            } else if (attendance[dateString] === 'Absent') {
                 return 'react-calendar__tile--absent';
             }
         }
         return null;
     };
-   return (
+
+    const handlePayClick = async () => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/transaction/initiateTransaction?customer_id=${profileId}&order_id=someOrderId&ammount=150`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const order = await response.json();
+            const isScriptLoaded = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
+            if (!isScriptLoaded) {
+                console.error('Razorpay SDK failed to load.');
+                return;
+            }
+            openRazorpayCheckout(order);
+        } catch (error) {
+            console.error('Error processing payment:', error);
+        }
+    };
+
+    const openRazorpayCheckout = (order) => {
+        const options = {
+            key: 'rzp_test_KHkKUM5Faj08Ha',
+            amount: order.amount,
+            currency: 'INR',
+            name: 'CCA ERP',
+            description: 'Test Transaction',
+            order_id: order.studentid,
+            prefill: {
+                name: student.name,
+                email: 'test@example.com',
+                contact: student.mobile
+            },
+            notes: {
+                address: 'itsmanjitsharma@gmail.com'
+            },
+            theme: {
+                color: '#3399cc'
+            },
+            handler: async function (response) {
+                try {
+                    const verificationResponse = await fetch(`http://localhost:8080/api/transaction/verifyPayment?razorpay_payment_id=${response.razorpay_payment_id}&razorpay_order_id=${response.razorpay_order_id}&razorpay_signature=${response.razorpay_signature}&amount=${order.amount}&studentid=${order.studentid}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    const verificationResult = await verificationResponse.json();
+                    if (verificationResult.status === 'success') {
+                        alert('Payment successful');
+                        navigate('/home');
+                    } else {
+                        alert('Payment verification failed');
+                    }
+                } catch (error) {
+                    console.error('Error verifying payment:', error);
+                }
+            },
+            modal: {
+                ondismiss: function () {
+                    console.log('Checkout form closed');
+                }
+            }
+        };
+        const rzp1 = new window.Razorpay(options);
+        rzp1.open();
+    };
+    return (
         <div className="StudentProfile">
             <div className="student-header">
                 <h3>Student Profile</h3>
@@ -68,8 +155,8 @@ const StudentProfile = () => {
             <div className='student-infos-container'>
                 <div className="student-info">
                     <div className="images">
-                    {student.image && <img src={`data:image/png;base64,${student.image}`} alt="Photo" />}
-                    <div className='infos'>
+                        {student.image && <img src={`data:image/png;base64,${student.image}`} alt="Photo" />}
+                        <div className='infos'>
                             <div className='info-item'>
                                 <label>Name:</label>
                                 <span>{student.name || "Manjit"}</span>
@@ -114,9 +201,7 @@ const StudentProfile = () => {
             </div>
             
             <div className='payment-button'>
-                <Link to='/QRCode'>
-                    <button>Pay here</button>
-                </Link>
+                <button onClick={handlePayClick}>Pay here</button>
             </div>
         </div>
     );
